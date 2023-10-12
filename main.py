@@ -43,7 +43,16 @@ def Sobel(img):
     outputDY = normalise(outputDY)
     return outputDX,outputDY,gradImage,psi
 
-
+def thresh(img,thresh):
+    height = img.shape[0] 
+    width = img.shape[1] 
+    for y in range(height):
+        for x in range(width):
+            if img[y][x] < thresh:
+                img[y][x] = 0
+            else:
+                img[y][x] = 255
+    return img
 
 def GaussianBlur(input, size):
 
